@@ -139,8 +139,16 @@ int evaluateExpression(std::string s)
     }
   }
 
-  expressionTree *root = getExpressionTree(tokenQueue);
-  result = evaluateExpressionTree(root);
+  if (!tokenQueue.empty())
+  {
+    expressionTree *root = getExpressionTree(tokenQueue);
+    result = evaluateExpressionTree(root);
+  }
+  else
+  {
+    std::cout << "No input." << std::endl;
+  }
+
   return result;
 }
 
